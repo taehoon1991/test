@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style type="text/css">
+		body {background:black;}
+		body, ul, li, p, div {padding:0; margin:0; }
+        li {list-style:none;}
+		a {color:#000; text-decoration:none; word-break:break-all;}
+		a:link, a:visited, a:hover, a:active, a:focus {text-decoration:none;}
+		#wrap {overflow:hidden; position:relative; width:800px;height:700px; border:1px solid green; margin:100px auto; background:#dbdbdb;}
+		.target_zone {}
+		.target_zone ul {}
+		.target_zone ul li {position:absolute;width:10%;animation:move 8s linear;}
+		.target_zone ul li button {display:block; width:50px; height:50px; background:green; border:none; border-radius:50%; line-height:50px; text-align:center; cursor:pointer; font-size:0; }
+		.target_zone ul li:nth-child(1) {top:100%; left:20px;}		
+		.target_zone ul li:nth-child(2) {top:100%; left:100px;}		
+		.target_zone ul li:nth-child(3) {top:100%; left:180px;}		
+		.target_zone ul li:nth-child(4) {top:100%; left:260px;}		
+		.target_zone ul li:nth-child(5) {top:100%; left:340px;}		
+		.target_zone ul li:nth-child(6) {top:100%; left:420px;}		
+		.target_zone ul li:nth-child(7) {top:100%; left:500px;}		
+		.target_zone ul li:nth-child(8) {top:100%; left:580px;}		
+		.target_zone ul li:nth-child(9) {top:100%; left:650px;}		
+		.target_zone ul li:nth-child(10) {top:100%;left:720px;}		
+
+		@keyframes move {0% {top:100%;} 100%{top:-100px;}}
+
+		.target_zone ul li.off button {animation:test 1s; background:none;font-size:15px; opacity:0; }
+		@keyframes test {0% {opacity:1;} 100%{opacity:0;}}
+
+		.result_zone {display:table;position:absolute; top:101%; width:100%;height:90%; background:#fff;transition:2s all; }
+		.result_zone .txt {display:table-cell; font-size:25px; text-align:center; vertical-align:middle;}
+		.result_zone .txt span {font-size:40px; color:red;}
+		.result_zone.up { top:10%; }
+	</style>
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script type="text/javascript">
+		$(document).ready(function(){
+			var $zone = $('.target_zone'),
+				  _li = $zone.find("li"),
+				  _size = _li.size(),
+				  _btn = $zone.find('button');
+
+				  _btn.on("click",function(){
+						var _this = $(this),
+							 _target = _this.closest("li");
+							_target.addClass("off");
+						var num = $('.target_zone ul').find("li.off").size();
+						$(".result_zone .txt").find("span").text(num);
+				  });
+				  setTimeout(function(){
+					$(".result_zone").addClass("up");
+				  },8500);
+			
+			//random
+			
+			
+			var test =11,
+				  arr=[],
+				   _random="";
+
+
+			for(var su=0; su<_size; su++){
+
+						_random = parseInt(Math.random()*_size),
+						wndqhr = arr.indexOf(_random);
+					
+					if(wndqhr == -1){
+						arr.push(_random);
+					}
+					
+				
+				console.log(wndqhr);
+
+				/*
+				if(wndqhr==-1){
+					test+=_random;
+					arr[su] =_random;
+				}
+					*/
+				
+				console.log("랜덤"+_random);
+				console.log("배열"+arr);
+			}
+		
+			
+
+			//나온 값이 값지 않다면
+			//나온 값은 제외
+			//push indexof
+            // 중복된 값이 나오면 다시 실행
+		
+
+		})
+
+	
+   </script>
+	
+ </head>
+ <body>
+	<div id="wrap">
+		<div class="target_zone">
+			<ul>
+				<li><button type='button' >펑~</button></li>
+				<li><button type='button' >펑!</button></li>
+				<li><button type='button' >펑~</button></li>
+				<li><button type='button' >펑!</button></li>
+				<li><button type='button' >펑~</button></li>
+				<li><button type='button' >펑!</button></li>
+				<li><button type='button' >펑!~</button></li>
+				<li><button type='button' >펑~</button></li>
+				<li><button type='button' >펑!~</button></li>
+				<li><button type='button' >펑~</button></li>
+			</ul>
+		</div>
+		<div class="result_zone">
+			<p class="txt">터트린 풍선 <span>0</span> 개</p>
+		</div>
+	</div>
+ </body>
+</html>
