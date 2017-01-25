@@ -8,40 +8,94 @@
   <meta name="Description" content="">
   <title>Document</title>
 	<style type="text/css">
-		body {background:black;}
+		body {background:black; font-size:15px;}
 		body, ul, li, p, div {padding:0; margin:0; }
         li {list-style:none;}
 		a {color:#000; text-decoration:none; word-break:break-all;}
 		a:link, a:visited, a:hover, a:active, a:focus {text-decoration:none;}
-		#wrap {overflow:hidden; position:relative; width:800px;height:700px; border:1px solid green; margin:100px auto; background:#dbdbdb;}
+		#wrap {overflow:; position:relative; width:800px;height:700px; border:1px solid green; margin:100px auto; background:#dbdbdb;}
+		.cont_zone {width:100%; height:10%; text-align:center;font-size:1.5em; box-sizing:border-box; padding-top:3%;}
 		.target_zone {}
 		.target_zone ul {}
-		.target_zone ul li {position:absolute;width:10%;animation:move 8s linear;}
+		.target_zone ul li {position:absolute;top:100%; width:10%; transition:10s all linear;z-index:10;}
 		.target_zone ul li button {display:block; width:50px; height:50px; background:green; border:none; border-radius:50%; line-height:50px; text-align:center; cursor:pointer; font-size:0; }
-		.target_zone ul li:nth-child(1) {top:100%; left:20px;}		
-		.target_zone ul li:nth-child(2) {top:100%; left:100px;}		
-		.target_zone ul li:nth-child(3) {top:100%; left:180px;}		
-		.target_zone ul li:nth-child(4) {top:100%; left:260px;}		
+		.target_zone ul li:nth-child(1) {top:100%; left:20px; }		
+		.target_zone ul li:nth-child(2) {top:100%; left:100px;}
+		.target_zone ul li:nth-child(3) {top:100%; left:180px;}
+		.target_zone ul li:nth-child(4) {top:100%; left:260px;} 
 		.target_zone ul li:nth-child(5) {top:100%; left:340px;}		
-		.target_zone ul li:nth-child(6) {top:100%; left:420px;}		
-		.target_zone ul li:nth-child(7) {top:100%; left:500px;}		
-		.target_zone ul li:nth-child(8) {top:100%; left:580px;}		
-		.target_zone ul li:nth-child(9) {top:100%; left:650px;}		
-		.target_zone ul li:nth-child(10) {top:100%;left:720px;}		
+		.target_zone ul li:nth-child(6) {top:100%; left:420px;} 
+		.target_zone ul li:nth-child(7) {top:100%; left:500px; }
+		.target_zone ul li:nth-child(8) {top:100%; left:580px; }
+		.target_zone ul li:nth-child(9) {top:100%; left:650px; 	}	
+		.target_zone ul li:nth-child(10) {top:100%;left:720px;}
 
-		@keyframes move {0% {top:100%;} 100%{top:-100px;}}
+		.target_zone ul li.pos0 {top:-50px; left:20px;}		
+		.target_zone ul li.pos1 {top:-50px; left:100px;}
+		.target_zone ul li.pos2 {top:-50px; left:180px;}		
+		.target_zone ul li.pos3 {top:-50px; left:260px;}		
+		.target_zone ul li.pos4 {top:-50px; left:340px;}		
+		.target_zone ul li.pos5 {top:-50px; left:420px;}		
+		.target_zone ul li.pos6 {top:-50px; left:500px;}		
+		.target_zone ul li.pos7 {top:-50px; left:580px;}		
+		.target_zone ul li.pos8 {top:-50px; left:650px;}		
+		.target_zone ul li.pos9 {top:-50px;left:720px;}	
 
-		.target_zone ul li.off button {animation:test 1s; background:none;font-size:15px; opacity:0; }
-		@keyframes test {0% {opacity:1;} 100%{opacity:0;}}
+		.target_zone ul li.pos0 {}		
+		.target_zone ul li.pos1 button { background:red;}		
+		.target_zone ul li.pos2 button { background:blue;}	
+		.target_zone ul li.pos3 button { background:pink;}			
+		.target_zone ul li.pos4 button { background:Black;}		
+		.target_zone ul li.pos5 button { background:aqua;}			
+		.target_zone ul li.pos6 button{background:white;}				
+		.target_zone ul li.pos7 button{background:puple;}		
+		.target_zone ul li.pos8 button{background:hotpink;}			
+		.target_zone ul li.pos9 button {background:yellow;}		
 
-		.result_zone {display:table;position:absolute; top:101%; width:100%;height:90%; background:#fff;transition:2s all; }
+		.target_zone ul li.off button {animation:test 0.3s; background:none;font-size:15px; opacity:0; z-index:1;}
+		@keyframes test {0% { opacity:1;} 100%{opacity:0;}}
+
+		.result_zone {display:none;/*display:table;*/position:absolute; top:101%; width:100%;height:90%; background:#fff;transition:2s all; }
 		.result_zone .txt {display:table-cell; font-size:25px; text-align:center; vertical-align:middle;}
 		.result_zone .txt span {font-size:40px; color:red;}
 		.result_zone.up { top:10%; }
 	</style>
   <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
    <script type="text/javascript">
-		$(document).ready(function(){
+   //random 구하기
+   
+        // var 배열, random 값
+		// 1. 랜덤 수 구하기 2. arr에 push & 중복 체크하기   3. for문에 넣기 
+		
+		// 변수 설정
+		var arr=[],
+			  _random ="";
+
+		//1. 랜덤 수 구하기 
+		function number(){
+			_random = parseInt(Math.random()*10);
+			//console.log("1. 랜덤 수 "+_random);
+		}
+
+		//2. arr에 입력 및 중복 체크
+		function push_check(){
+			number();
+			//중복이 없는 경우
+			if(arr.indexOf(_random)<0){
+				arr.push(_random);
+				console.log("2. 체크 "+arr);	
+			}else{//중복일 경우 다시 수를 구한다 
+				push_check();
+			}
+		}
+		for(var st = 0; st <10 ; st++){
+			push_check();
+		}
+			
+
+		console.log("동작");
+/*
+	$(document).ready(function(){
 			var $zone = $('.target_zone'),
 				  _li = $zone.find("li"),
 				  _size = _li.size(),
@@ -50,64 +104,89 @@
 				  _btn.on("click",function(){
 						var _this = $(this),
 							 _target = _this.closest("li");
-							_target.addClass("off");
+							_target.addClass("off").fadeOut();
 						var num = $('.target_zone ul').find("li.off").size();
 						$(".result_zone .txt").find("span").text(num);
 				  });
 				  setTimeout(function(){
 					$(".result_zone").addClass("up");
-				  },8500);
+				  },10500);
 			
-			//random
-			
-			
-			var test =11,
-				  arr=[],
-				   _random="";
-
-
-			for(var su=0; su<_size; su++){
-
-						_random = parseInt(Math.random()*_size),
-						wndqhr = arr.indexOf(_random);
-					
+				
+		
+		//_size = 1~100 중에 10개 
+		/*
+			function return2(){
+				for(var su=0; su<_size; su++){
+							_random = parseInt(Math.random()*_size),
+							wndqhr = arr.indexOf(_random);
 					if(wndqhr == -1){
-						arr.push(_random);
+							arr.push(_random);
+
+							_li.eq(su).addClass("pos"+_random);
+					}else{		
+						console.log("중복");
+						//***
 					}
-					
-				
-				console.log(wndqhr);
-
-				/*
-				if(wndqhr==-1){
-					test+=_random;
-					arr[su] =_random;
+					console.log(wndqhr);
+					console.log("랜덤"+_random);
+					console.log("배열"+arr);
 				}
-					*/
-				
-				console.log("랜덤"+_random);
-				console.log("배열"+arr);
-			}
-		
+			} 
+			// 1. 랜덤을 함수로  2. 중복체크 for문 밖에서 하나 씩
+			// 
+
+			return2();
 			
-
-			//나온 값이 값지 않다면
-			//나온 값은 제외
-			//push indexof
-            // 중복된 값이 나오면 다시 실행
+			// 시간 초
+			var cont = 1;
+				auto = setInterval(function(){
+					console.log(cont);
+					$(".cont_zone").find("span").text(cont);
+					cont++;
+					 if(cont>=11){
+						console.log("gd");
+						clearInterval(auto);
+					}
+				},1000);
 		
 
-		})
+	})
 
+
+/*
+	
+   function random() {
+	   var arr=[]
+			,random="";
+		 function num() {
+			random = parseInt(Math.random()*20);
+		}
+		function test() {
+			num();
+			if (arr.indexOf(random) < 0) {
+				arr.push(random);
+			} else {
+				test();
+			}
+			console.log(arr);
+		}
+		for(var i = 0; i<10; i++){
+			test();
+		}
+	}
+
+*/
 	
    </script>
 	
  </head>
  <body>
 	<div id="wrap">
+		<p class="cont_zone">남은 시간 <span class="cont">0</span></p>
 		<div class="target_zone">
 			<ul>
-				<li><button type='button' >펑~</button></li>
+				<li ><button type='button' >펑~</button></li>
 				<li><button type='button' >펑!</button></li>
 				<li><button type='button' >펑~</button></li>
 				<li><button type='button' >펑!</button></li>
