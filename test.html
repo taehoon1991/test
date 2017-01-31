@@ -15,16 +15,18 @@
 	<script src="jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-		
+			
 			$('.btn_article button').on("click",function(){			
 				
 				$.ajax({
 			 		url:'student.php'
 			 		,dataType:'json'
-			 		,success:function(data){
+			 		,success:function(e){
+						console.log("성공"+e);
 			 			console.log("test tt");
 			 		}//success
 					,error:function(e){
+			 			console.log("실패"+e);
 			 			console.log(e);
 			 			console.log('에러');
 			 		}//error
