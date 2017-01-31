@@ -16,14 +16,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 		
-			$('.btn_article').on("click",function(){
-				
+			$('.btn_article').on("click",function(){			
 				$.ajax({
 						url:'member.php'
 						,dataType:'json'
 						,success:function(e){
 							console.log('success');
-							
+							$('.load').html(e);
 						}//success
 		
 						
@@ -40,6 +39,7 @@
 	<div id="wrap">
 		<div class="btn_article">
 			<button type="button">BTN</button>
+			<div class="load"></div>
 		</div>
 	</div>	
  </body>
