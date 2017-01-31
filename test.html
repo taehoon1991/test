@@ -18,11 +18,12 @@
 		
 			$('.btn_article').on("click",function(){			
 				$.ajax({
-						url:'member.html'
+						url:'member.php'
 						,dataType:'json'
 						,success:function(e){
-							console.log('success');
+							
 							$('.load').html('.load_zone');
+							console.log('success');
 						}//success
 		
 						
