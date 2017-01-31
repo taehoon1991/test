@@ -22,28 +22,9 @@
 			 		url:'student.php'
 			 		,dataType:'json'
 			 		,success:function(data){
-			 	
-			 		var avg=0;
-			 		$(data).each(function(index, item){
-			 		avg=((eval(item.kor)+eval(item.eng)+eval(item.math))/3).toFixed(2) ;
-	            
-			 		var t='<tr>';
-			 		 t+='<td>'+item.name+'</td>';	
-			 		 t+='<td>'+item.hak+'</td>';	
-			 		 t+='<td>'+item.kor+'</td>';	
-			 		 t+='<td>'+item.eng+'</td>';	
-			 		 t+='<td>'+item.math+'</td>';
-			 		 t+='<td>'+avg+'</td>';	
-			 		 t+='</tr>';
-			 		 
-			 		if(avg<60){ 			
-			 			 $(t).css('backgroundColor','yellow').appendTo('#result > tbody');
-			 		 }else{
-			 			 $(t).appendTo('#result > tbody');
-			 		 }//else
-			 		});//each
-			 		
-			 		},error:function(e){
+			 			console.log("test tt");
+			 		}//success
+					,error:function(e){
 			 			console.log(e);
 			 			console.log('에러');
 			 		}//error
