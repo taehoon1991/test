@@ -1,4 +1,4 @@
-<div class="load_zone">
+<div class="ajax">
 	<p>gdgdgd</p>
 
 </div>
