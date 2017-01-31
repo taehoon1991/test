@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	#wrap {width:500px;height:500px; border:1px solid #dbdbdb; margin:0 auto;} 
+	.btn_article {padding-top:50px; text-align:center;}
+	.btn_article button {display:inline-block;}
+  </style>
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		
+			$('.btn_article').on("click",function(){
+				
+				$.ajax({
+						url:'member.php'
+						,dataType:'json'
+						,success:function(e){
+							console.log('success');
+							
+						}//success
+		
+						
+						,error:function(e){
+							console.log('error');
+						}
+					});//ajax
+			});
+		});
+		
+	</script>
+ </head>
+ <body>
+	<div id="wrap">
+		<div class="btn_article">
+			<button type="button">BTN</button>
+		</div>
+	</div>	
+ </body>
+</html>
