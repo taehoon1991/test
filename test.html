@@ -15,6 +15,7 @@
 	<script src="jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var _html = "";
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
 			 		url:'testt.html'
@@ -22,7 +23,10 @@
 			 		,success:function(e){
 						console.log("성공"+e);
 						var test2 =$('.load_zone');
-						$('.ajax_zone').html(test2);
+						
+						_html += test2;
+
+						$('.ajax_zone').html(_html);
 			 			console.log("test tt");
 			 		}//success
 					,error:function(e){
@@ -42,7 +46,7 @@
 	<div id="wrap">
 		<div class="btn_article">
 			<button type="button">BTN</button>
-			<div class="ajax_zone"></div>
+			<div class="ajax_zone">ddd</div>
 		</div>
 	</div>	
  </body>
