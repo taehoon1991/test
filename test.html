@@ -8,7 +8,7 @@
   <meta name="Description" content="">
   <title>Document</title>
   <style type="text/css">
-	#wrap {width:500px;height:500px; border:1px solid #dbdbdb; margin:0 auto;} 
+	#wrap {width:300px;height:300px; border:1px solid #dbdbdb; margin:0 auto;} 
 	.btn_article {padding-top:50px; text-align:center;}
 	.btn_article button {display:inline-block;}
   </style>
@@ -17,21 +17,21 @@
 		$(document).ready(function(){
 		
 			$('.btn_article button').on("click",function(){			
+				
 				$.ajax({
 						url:'member.php'
 						,dataType:'json'
 						,success:function(e){
-							console.log('success');	
-							
+							console.log('success');			
 						}//success
 		
-						
 						,error:function(e){
 							console.log('error');
 						}
+				});//ajax
 
-					});//ajax
-			});
+			});//click
+
 		});
 		
 	</script>
