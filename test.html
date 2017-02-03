@@ -18,7 +18,8 @@
 		$(document).ready(function(){
 			var _html = "";
 			var _wrap = $("#wrap"),
-				  _zone = _wrap.find(".ajax_zone");
+				  _zone = _wrap.find(".ajax_zone"),
+				  _text = _zone.text();
 
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
@@ -35,10 +36,9 @@
 							  
 							  console.log(_div);
 							  console.log(_p);
+							  console.log(_zone);
+							  console.log(_text);
 							_zone.text("변경");
-							_zone.html(_div);
-							_zone.html(_p);
-							_zone.append(_p);
 
 			 			console.log("종료");
 			 		}//success
@@ -59,7 +59,7 @@
 	<div id="wrap">
 		<div class="btn_article">
 			<button type="button">BTN</button>
-			<div class="ajax_zone">테스트4</div>
+			<div class="ajax_zone">테스트5</div>
 		</div>
 	</div>	
  </body>
