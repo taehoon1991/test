@@ -1,0 +1,21 @@
+/* css */
+
+.content{position:relative; width:100%; /* 높이는 js */ }
+
+.content:after {display:block; clear:both; content:"";}
+section {float:left; width:100%; height:100%;}
+section > div { box-sizing:border-box;  -webkit-box-sizing:border-box; -moz-box-sizing:border-box;}
+
+.mainList_zone {width:50%; height:100%;  }
+
+.subList_zone{width:50%; height:100%;  }
+
+.info_zone {}
+
+
+
+
+
+
+
+
