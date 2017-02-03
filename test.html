@@ -22,11 +22,14 @@
 			 		,dataType:'html'
 			 		,success:function(e){
 						console.log("성공");
-						/* test
-						var test2 =$('.load_zone');
-						_html += test2;
-						$('.ajax_zone').html(_html);
-						*/
+						var _p = e.find("div");
+						if(_p.hasClass("load_zone")==true){
+						console.log("찾음")
+						}else { 
+							console.log("못찾");
+						}
+
+
 			 			console.log("test tt");
 			 		}//success
 					,error:function(e){
