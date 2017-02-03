@@ -22,8 +22,8 @@
 
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
-					type:'POST',
-			 		url:'testt.html'
+					type:'GET'
+			 		,url:'testt.html'
 			 		,dataType:'html'
 			 		,success:function(e){
 						console.log("성공");
@@ -59,7 +59,7 @@
 	<div id="wrap">
 		<div class="btn_article">
 			<button type="button">BTN</button>
-			<div class="ajax_zone">테스트3</div>
+			<div class="ajax_zone">테스트4</div>
 		</div>
 	</div>	
  </body>
