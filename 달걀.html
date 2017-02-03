@@ -98,8 +98,10 @@
 					$li = $inner.find("li");
 					_btn = $box.find(".btn_article a"),
 					_size = 0,
-					_num = 12,
-					_test = 0;
+					_num = 8,
+					_ten = 0,
+					_fifteen = 0;
+					
 
 				    for(var j =0; j<_num;j++){
 						$li.eq(j).addClass("on");
@@ -110,19 +112,24 @@
 							_size = parseInt(_on.size()-1);
 					console.log("on 수"+_size);
 
-					for(var i = 0 ; i<=_size+3 ; i++){
+					for(var i = 0 ; i<=_size+2 ; i++){
 						$li.eq(i).addClass("on");
 					}
 					
 		
 					if($li.eq(9).hasClass("on") == true){
-						if(_test == 0){
+						if(_ten == 0){
 							alert("10번째 당첨");
 						}
-						_test++;
+						_ten++;
 					}
 					if ($li.eq(14).hasClass("on") == true){
-						alert("15번째 당첨");
+						if(_fifteen == 0){
+							alert("15번째 당첨");
+						}else {
+							alert('더 이상 참여하실 수 없습니다.');
+						}
+						_fifteen++;
 					}
 					
 

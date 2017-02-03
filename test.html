@@ -9,7 +9,7 @@
   <title>Document</title>
   <style type="text/css">
 	#wrap {width:300px;height:300px; border:1px solid #dbdbdb; margin:0 auto;} 
-	.btn_article {padding-top:50px; text-align:center;}
+	.article_zone {padding-top:50px; text-align:center;}
 	.btn_article button {display:inline-block;}
 	.load_zone p {font-size:13px; color:pink;}
   </style>
@@ -27,18 +27,29 @@
 			 		,dataType:'html'
 			 		,success:function(e){
 						console.log("성공");
-						$('.ajax_zone').html(e); 
-						
-						
+						$('.ajax_zone').html(e); 	
 			 			console.log("종료");
 			 		}//success
 					,error:function(e){
 			 			console.log("실패"+e);
-			 			console.log(e);
 			 			console.log('에러');
 			 		}//error
 			 	});//ajax
-
+			});//click
+			$('.btn_article2 button').on("click",function(){			
+				$.ajax({
+			 		url:'test2.html'
+			 		,dataType:'html'
+			 		,success:function(test2){
+						console.log("성공");
+						$('.ajax_zone').html(test2); 	
+			 			console.log("종료");
+			 		}//success
+					,error:function(test2){
+			 			console.log("실패"+e);
+			 			console.log('에러');
+			 		}//error
+			 	});//ajax
 			});//click
 
 		});
@@ -47,7 +58,11 @@
  </head>
  <body>
 	<div id="wrap">
-		<div class="btn_article">
+		<div class="btn_article article_zone">
+			<button type="button">BTN</button>
+			<div class="ajax_zone">테스트8</div>
+		</div>
+		<div class="btn_article2 article_zone">
 			<button type="button">BTN</button>
 			<div class="ajax_zone">테스트8</div>
 		</div>
