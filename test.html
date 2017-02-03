@@ -11,7 +11,7 @@
 	#wrap {width:300px;height:300px; border:1px solid #dbdbdb; margin:0 auto;} 
 	.btn_article {padding-top:50px; text-align:center;}
 	.btn_article button {display:inline-block;}
-	.load_zone {width:100px; height:100px; background:green;}
+	.load_zone p {font-size:13px; color:pink;}
   </style>
 	<script src="jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
@@ -20,7 +20,7 @@
 			var _wrap = $("#wrap"),
 				  _zone = _wrap.find(".ajax_zone"),
 				  _text = _zone.text();
-
+			
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
 			 		url:'testt.html'
@@ -28,8 +28,8 @@
 			 		,success:function(e){
 						console.log("성공");
 						$('.ajax_zone').html(e); 
-			
-
+						
+						
 			 			console.log("종료");
 			 		}//success
 					,error:function(e){
