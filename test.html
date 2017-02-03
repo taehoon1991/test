@@ -23,19 +23,15 @@
 
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
-					type:'GET'
+					type:'GET',
 			 		,url:'testt.html'
 			 		,dataType:'html'
 			 		,success:function(e){
 						console.log("성공");
-						
-
-
-						var _div = $(e).find(".load_zone"),
-							  _p = _div.find("p");
+						var _div = $(e).find(".load_zone p").text();
 							  
 							  console.log(_div);
-							  console.log(_p);
+						
 							  console.log(_zone);
 							  console.log(_text);
 							_zone.text("변경");
