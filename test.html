@@ -16,37 +16,43 @@
 	<script src="jquery-1.12.4.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-	
-			$('.btn_article button').on("click",function(){			
-				$.ajax({
-			 		url:'testt.html'
-			 		,dataType:'html'
-			 		,success:function(e){
-						console.log("성공");
-						$('.ajax_zone').html(e); 	
-			 			console.log("종료");
-			 		}//success
-					,error:function(e){
-			 			console.log("실패"+e);
-			 			console.log('에러');
-			 		}//error
-			 	});//ajax
-			});//click
-			$('.btn_article2 button').on("click",function(){			
-				$.ajax({
-			 		url:'test2.html'
-			 		,dataType:'html'
-			 		,success:function(test2){
-						console.log("성공");
-						$('.ajax_zone2').html(test2); 	
-			 			console.log("종료");
-			 		}//success
-					,error:function(test2){
-			 			console.log("실패"+e);
-			 			console.log('에러');
-			 		}//error
-			 	});//ajax
-			});//click
+			var number = 0;
+
+			if(number == 0 ){
+				$('.btn_article button').on("click",function(){			
+					$.ajax({
+						url:'testt.html'
+						,dataType:'html'
+						,success:function(e){
+							console.log("성공");
+							$('.ajax_zone').html(e); 	
+							console.log("종료");
+						}//success
+						,error:function(e){
+							console.log("실패"+e);
+							console.log('에러');
+						}//error
+					});//ajax
+					number++;
+				});//click
+			}else if (number == 1){
+				$('.btn_article2 button').on("click",function(){			
+					$.ajax({
+						url:'test2.html'
+						,dataType:'html'
+						,success:function(test2){
+							console.log("성공");
+							$('.ajax_zone2').html(test2); 	
+							console.log("종료");
+						}//success
+						,error:function(test2){
+							console.log("실패"+e);
+							console.log('에러');
+						}//error
+					});//ajax
+					number = 0;
+				});//click
+			}
 
 		});
 		
