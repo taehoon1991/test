@@ -18,8 +18,8 @@
 		$(document).ready(function(){
 			var number = 0;
 
-			if(number == 0 ){
-				$('.btn_article button').on("click",function(){			
+			$('.btn_article button').on("click",function(){			
+				if(number == 0 ){
 					$.ajax({
 						url:'testt.html'
 						,dataType:'html'
@@ -34,26 +34,48 @@
 						}//error
 					});//ajax
 					number++;
-				});//click
-			}else if (number == 1){
-				$('.btn_article2 button').on("click",function(){			
+				}else if(number == 1){
 					$.ajax({
-						url:'test2.html'
+						url:'testt2.html'
 						,dataType:'html'
-						,success:function(test2){
+						,success:function(e){
 							console.log("성공");
-							$('.ajax_zone2').html(test2); 	
+							$('.ajax_zone').html(e); 	
 							console.log("종료");
 						}//success
-						,error:function(test2){
+						,error:function(e){
 							console.log("실패"+e);
 							console.log('에러');
 						}//error
 					});//ajax
-					number = 0;
-				});//click
-			}
-
+					number == 0;
+				}else {
+					console.log("오류입니다")
+				}
+				
+				
+			});//click
+			
+			/*
+				else if (number == 1){
+					$('.btn_article2 button').on("click",function(){			
+						$.ajax({
+							url:'test2.html'
+							,dataType:'html'
+							,success:function(test2){
+								console.log("성공");
+								$('.ajax_zone2').html(test2); 	
+								console.log("종료");
+							}//success
+							,error:function(test2){
+								console.log("실패"+e);
+								console.log('에러');
+							}//error
+						});//ajax
+						number = 0;
+					});//click
+				}
+			*/
 		});
 		
 	</script>
@@ -64,10 +86,7 @@
 			<button type="button">BTN</button>
 			<div class="ajax_zone">테스트9</div>
 		</div>
-		<div class="btn_article2 article_zone">
-			<button type="button">BTN</button>
-			<div class="ajax_zone2">테스트2</div>
-		</div>
+		
 	</div>	
  </body>
 </html>
