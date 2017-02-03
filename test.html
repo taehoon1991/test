@@ -34,9 +34,10 @@
 						}//error
 					});//ajax
 					number++;
+					console.log(number);
 				}else if(number == 1){
 					$.ajax({
-						url:'testt2.html'
+						url:'test2.html'
 						,dataType:'html'
 						,success:function(e){
 							console.log("성공");
@@ -49,6 +50,7 @@
 						}//error
 					});//ajax
 					number == 0;
+					console.log(number);
 				}else {
 					console.log("오류입니다")
 				}
