@@ -16,6 +16,9 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var _html = "";
+			var _wrap = $("#wrap"),
+				  _zone = _wrap.find(".ajax_zone");
+
 			$('.btn_article button').on("click",function(){			
 				$.ajax({
 			 		url:'testt.html'
@@ -23,11 +26,14 @@
 			 		,success:function(e){
 						console.log("성공");
 						
+
+
 						var _div = $(e).find(".load_zone"),
 							  _p = _div.find("p");
 							  
 							  console.log(_p);
-
+							_zone.text("변경");
+							_zone.append(_p);
 
 			 			console.log("종료");
 			 		}//success
