@@ -28,13 +28,8 @@
 			 		,dataType:'html'
 			 		,success:function(e){
 						console.log("성공");
-						var _div = $(e).find(".load_zone p").text();
-							  
-							  console.log(_div);
-						
-							  console.log(_zone);
-							  console.log(_text);
-							_zone.text("변경");
+						$('.ajax_zone').html(e); 
+			
 
 			 			console.log("종료");
 			 		}//success
