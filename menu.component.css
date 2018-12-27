@@ -1,0 +1,17 @@
+* {margin:0; padding:0;}
+
+.menu_zone {width:500px; background:red;}
+
+.menu_inner > {width:100px;}
+
+ul:after {display:block; clear:both; content:"";}
+li { list-style:none; float:left;}
+
+a{display:inline-block; padding:5px 10px; border:1px solid green; background:#fff;}
+a:hover{
+  color: black;
+  background-color: lightgrey;
+  cursor:pointer;
+}
+
+
